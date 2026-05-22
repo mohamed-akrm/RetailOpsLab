@@ -16,5 +16,5 @@ RETURN
     WHERE CategoryID = @CategoryID 
       AND ProductID <> @ProductID
       AND IsActive = 1
-    ORDER BY NEWID() -- ترتيب عشوائي لعرض منتجات مختلفة كل مرة
+    ORDER BY ProductID
 );
