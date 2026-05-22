@@ -1,0 +1,14 @@
+{
+  "name": "retail-ops-lab-backend",
+  "version": "1.0.0",
+  "description": "Beginner backend example that calls SQL Server stored procedures",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "dotenv": "latest",
+    "express": "latest",
+    "mssql": "latest"
+  }
+}

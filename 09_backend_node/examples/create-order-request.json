@@ -1,0 +1,18 @@
+{
+  "customerId": 1,
+  "appUserId": 1,
+  "items": [
+    {
+      "productId": 1,
+      "warehouseId": 1,
+      "quantity": 2,
+      "discountPercent": 0
+    },
+    {
+      "productId": 2,
+      "warehouseId": 1,
+      "quantity": 1,
+      "discountPercent": 5
+    }
+  ]
+}

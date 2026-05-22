@@ -1,0 +1,33 @@
+# Environment / secrets
+.env
+*.env
+appsettings.Development.json
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+bin/
+obj/
+
+# Node.js
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# SQL Server backups / large generated files
+*.bak
+*.trn
+*.ldf
+*.mdf
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
