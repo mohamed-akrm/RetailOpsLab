@@ -1,0 +1,37 @@
+@model List<SalesReportRow>
+@{
+    ViewData["Title"] = "Sales Report";
+}
+
+<h1>Sales Report</h1>
+<p class="muted">This report calls sales.usp_GetSalesReport. Use it for before/after optimization comparison.</p>
+
+<form method="get" class="inline-form">
+    <label>From</label>
+    <input type="date" name="fromDate" value="@ViewBag.FromDate" />
+    <label>To</label>
+    <input type="date" name="toDate" value="@ViewBag.ToDate" />
+    <button type="submit">Run Report</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Orders</th>
+            <th>Items Sold</th>
+            <th>Total Sales</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var row in Model)
+    {
+        <tr>
+            <td>@row.CustomerName</td>
+            <td>@row.NumberOfOrders</td>
+            <td>@row.TotalItemsSold</td>
+            <td>@row.TotalSales.ToString("N2")</td>
+        </tr>
+    }
+    </tbody>
+</table>

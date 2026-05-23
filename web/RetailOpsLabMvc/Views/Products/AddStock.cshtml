@@ -1,0 +1,33 @@
+@model AddStockViewModel
+@{
+    ViewData["Title"] = "Add Stock";
+}
+
+<h1>Add Stock</h1>
+<p class="muted">This form calls inventory.usp_AddStock.</p>
+
+<form asp-action="AddStock" method="post" class="form">
+    <div asp-validation-summary="All" class="danger"></div>
+
+    <label>Product</label>
+    <select asp-for="ProductId">
+        @foreach (var item in Model.Products)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+
+    <label>Warehouse</label>
+    <select asp-for="WarehouseId">
+        @foreach (var item in Model.Warehouses)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+
+    <label>Quantity</label>
+    <input asp-for="Quantity" />
+
+    <button type="submit">Add Stock</button>
+    <a asp-action="Index">Back</a>
+</form>

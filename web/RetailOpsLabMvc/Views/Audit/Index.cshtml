@@ -1,0 +1,35 @@
+@model List<AuditLogViewModel>
+@{
+    ViewData["Title"] = "Audit Logs";
+}
+
+<h1>Audit Logs</h1>
+<p class="muted">These rows are saved automatically by triggers.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Table</th>
+            <th>Action</th>
+            <th>Record</th>
+            <th>User</th>
+            <th>Created At</th>
+            <th>New Values</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AuditLogId</td>
+            <td>@item.SchemaName.@item.TableName</td>
+            <td>@item.ActionName</td>
+            <td>@item.RecordId</td>
+            <td>@item.AppUserId</td>
+            <td>@item.CreatedAt</td>
+            <td><code>@item.NewValue</code></td>
+        </tr>
+    }
+    </tbody>
+</table>

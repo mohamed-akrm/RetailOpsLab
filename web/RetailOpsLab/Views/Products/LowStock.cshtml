@@ -1,0 +1,31 @@
+@model List<LowStockViewModel>
+@{
+    ViewData["Title"] = "Low Stock";
+}
+
+<h1>Low Stock Products</h1>
+<p class="muted">This page calls inventory.usp_GetLowStockProducts.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>SKU</th>
+            <th>Warehouse</th>
+            <th>Quantity</th>
+            <th>Reorder Level</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.SKU</td>
+            <td>@item.WarehouseName</td>
+            <td>@item.Quantity</td>
+            <td>@item.ReorderLevel</td>
+        </tr>
+    }
+    </tbody>
+</table>

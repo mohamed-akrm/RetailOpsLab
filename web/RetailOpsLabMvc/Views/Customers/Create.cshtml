@@ -1,0 +1,26 @@
+@model CustomerViewModel
+@{
+    ViewData["Title"] = "Create Customer";
+}
+
+<h1>Create Customer</h1>
+<p class="muted">This form calls sales.usp_CreateCustomer using parameters.</p>
+
+<form asp-action="Create" method="post" class="form">
+    <div asp-validation-summary="All" class="danger"></div>
+
+    <label>Customer Name</label>
+    <input asp-for="CustomerName" />
+
+    <label>Phone</label>
+    <input asp-for="Phone" />
+
+    <label>Email</label>
+    <input asp-for="Email" />
+
+    <label>City</label>
+    <input asp-for="City" />
+
+    <button type="submit">Save Customer</button>
+    <a asp-action="Index">Back</a>
+</form>

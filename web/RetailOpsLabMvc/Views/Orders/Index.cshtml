@@ -1,0 +1,35 @@
+@model List<OrderListItemViewModel>
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<div class="page-title">
+    <h1>Orders</h1>
+    <a class="button" asp-action="Create">Create Order</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.OrderId</td>
+            <td>@item.CustomerName</td>
+            <td>@item.OrderDate</td>
+            <td>@item.OrderStatus</td>
+            <td>@item.TotalAmount.ToString("N2")</td>
+            <td><a asp-action="Details" asp-route-id="@item.OrderId">Details</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

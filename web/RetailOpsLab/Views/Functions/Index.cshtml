@@ -1,0 +1,48 @@
+@model FunctionLabViewModel
+@{
+    ViewData["Title"] = "Functions Lab";
+}
+
+<h1>Functions Lab</h1>
+<p class="muted">This page demonstrates safe functions only. The MVC app calls stored procedures, and the procedures call the functions.</p>
+
+<form asp-action="Index" method="post" class="form wide">
+    <h2>1. Loyalty Points</h2>
+    <label>Order Total</label>
+    <input asp-for="OrderTotal" />
+    <label>Customer Tier: 1 Normal, 2 VIP</label>
+    <input asp-for="CustomerTier" />
+    <p><strong>Earned Points:</strong> @Model.EarnedPoints</p>
+
+    <h2>2. Customer Financial Summary</h2>
+    <label>Customer ID</label>
+    <input asp-for="CustomerId" />
+    <p><strong>Customer:</strong> @Model.CustomerName</p>
+    <p><strong>Total Orders:</strong> @Model.TotalOrders</p>
+    <p><strong>Lifetime Value:</strong> @Model.LifetimeValue.ToString("N2")</p>
+    <p><strong>Last Order Date:</strong> @Model.LastOrderDate</p>
+
+    <h2>3. Mask Contact Info</h2>
+    <label>Email</label>
+    <input asp-for="Email" />
+    <label>Phone Number</label>
+    <input asp-for="PhoneNumber" />
+    <p><strong>Masked Email:</strong> @Model.MaskedEmail</p>
+    <p><strong>Masked Phone:</strong> @Model.MaskedPhone</p>
+
+    <h2>4. Working Days</h2>
+    <label>Start Date</label>
+    <input asp-for="StartDate" type="date" />
+    <label>End Date</label>
+    <input asp-for="EndDate" type="date" />
+    <p><strong>Business Days:</strong> @Model.BusinessDays</p>
+
+    <h2>5. Fiscal Period</h2>
+    <label>Input Date</label>
+    <input asp-for="FiscalInputDate" type="date" />
+    <p><strong>Year:</strong> @Model.CalendarYear</p>
+    <p><strong>Month:</strong> @Model.CalendarMonth</p>
+    <p><strong>Quarter:</strong> @Model.CalendarQuarter</p>
+
+    <button type="submit">Run Functions</button>
+</form>

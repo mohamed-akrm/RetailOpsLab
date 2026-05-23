@@ -1,0 +1,44 @@
+@model OrderCreateViewModel
+@{
+    ViewData["Title"] = "Create Order";
+}
+
+<h1>Create Order</h1>
+<p class="muted">Simple UI creates one order line. The stored procedure itself supports many order items using a table-valued parameter.</p>
+
+<form asp-action="Create" method="post" class="form">
+    <div asp-validation-summary="All" class="danger"></div>
+
+    <label>Customer</label>
+    <select asp-for="CustomerId">
+        @foreach (var item in Model.Customers)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+
+    <label>Product</label>
+    <select asp-for="ProductId">
+        @foreach (var item in Model.Products)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+
+    <label>Warehouse</label>
+    <select asp-for="WarehouseId">
+        @foreach (var item in Model.Warehouses)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+
+    <label>Quantity</label>
+    <input asp-for="Quantity" />
+
+    <label>Discount Percent</label>
+    <input asp-for="DiscountPercent" />
+
+    <button type="submit">Create Order</button>
+    <a asp-action="Index">Back</a>
+</form>

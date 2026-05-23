@@ -1,0 +1,39 @@
+@model DashboardViewModel?
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+<p class="muted">This page reads summary numbers by calling app.usp_GetDashboardNumbers.</p>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="danger">
+        <strong>Database connection failed.</strong>
+        <p>@ViewBag.ErrorMessage</p>
+        <p>Check SQL Server, database creation, and the connection string in appsettings.json.</p>
+    </div>
+}
+else if (Model != null)
+{
+    <div class="cards">
+        <div class="card"><span>Customers</span><strong>@Model.CustomersCount</strong></div>
+        <div class="card"><span>Products</span><strong>@Model.ProductsCount</strong></div>
+        <div class="card"><span>Orders</span><strong>@Model.OrdersCount</strong></div>
+        <div class="card"><span>Order Items</span><strong>@Model.OrderItemsCount</strong></div>
+        <div class="card"><span>Audit Logs</span><strong>@Model.AuditLogsCount</strong></div>
+        <div class="card"><span>Total Sales</span><strong>@Model.TotalSales.ToString("N2")</strong></div>
+    </div>
+
+    <section class="panel">
+        <h2>Doctor Demo Path</h2>
+        <ol>
+            <li>Create a customer.</li>
+            <li>Add stock to a product.</li>
+            <li>Create an order.</li>
+            <li>Open Audit Logs and show what was saved automatically.</li>
+            <li>Open Reports and explain before/after optimization.</li>
+            <li>Open Functions and show the functions you added.</li>
+        </ol>
+    </section>
+}

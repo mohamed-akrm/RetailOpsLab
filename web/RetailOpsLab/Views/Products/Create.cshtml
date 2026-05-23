@@ -1,0 +1,44 @@
+@model ProductViewModel
+@{
+    ViewData["Title"] = "Create Product";
+    var categories = ViewBag.Categories as List<CategoryOption> ?? new List<CategoryOption>();
+    var suppliers = ViewBag.Suppliers as List<SupplierOption> ?? new List<SupplierOption>();
+}
+
+<h1>Create Product</h1>
+<p class="muted">This form calls inventory.usp_CreateProduct.</p>
+
+<form asp-action="Create" method="post" class="form">
+    <div asp-validation-summary="All" class="danger"></div>
+
+    <label>SKU</label>
+    <input asp-for="SKU" />
+
+    <label>Product Name</label>
+    <input asp-for="ProductName" />
+
+    <label>Category</label>
+    <select asp-for="CategoryId">
+        @foreach (var item in categories)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+
+    <label>Supplier</label>
+    <select asp-for="SupplierId">
+        @foreach (var item in suppliers)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+
+    <label>Unit Price</label>
+    <input asp-for="UnitPrice" />
+
+    <label>Reorder Level</label>
+    <input asp-for="ReorderLevel" />
+
+    <button type="submit">Save Product</button>
+    <a asp-action="Index">Back</a>
+</form>

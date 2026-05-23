@@ -1,0 +1,41 @@
+@model List<ProductViewModel>
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="page-title">
+    <h1>Products</h1>
+    <div>
+        <a class="button" asp-action="Create">Create Product</a>
+        <a class="button secondary" asp-action="AddStock">Add Stock</a>
+        <a class="button secondary" asp-action="LowStock">Low Stock</a>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>SKU</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Supplier</th>
+            <th>Price</th>
+            <th>Total Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductId</td>
+            <td>@item.SKU</td>
+            <td>@item.ProductName</td>
+            <td>@item.CategoryName</td>
+            <td>@item.SupplierName</td>
+            <td>@item.UnitPrice.ToString("N2")</td>
+            <td>@item.TotalQuantity</td>
+        </tr>
+    }
+    </tbody>
+</table>
